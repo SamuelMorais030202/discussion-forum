@@ -1,4 +1,12 @@
-import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model } from "sequelize";
+import {
+  CreationOptional,
+  DataTypes,
+  InferAttributes,
+  InferCreationAttributes,
+  Model
+} from "sequelize";
+import SequelizeMessage from "./SequelizeMessage";
+import SequelizeTopics from "./SequelizeTopics";
 import db from '.';
 
 class SequelizeUser extends Model<InferAttributes<SequelizeUser>,
