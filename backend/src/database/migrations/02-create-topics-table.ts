@@ -25,14 +25,9 @@ export default {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: new Date(),
-        field: 'created_at'
-      }
     })
   },
   down(queryInterface: QueryInterface) {
     return queryInterface.dropTable('topics');
-  }
+  } 
 }

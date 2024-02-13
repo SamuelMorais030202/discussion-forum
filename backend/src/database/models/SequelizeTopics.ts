@@ -4,7 +4,6 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-  Sequelize,
 } from "sequelize";
 import SequelizeMessage from "./SequelizeMessage";
 import SequelizeUser from "./SequelizeUser";
@@ -16,9 +15,8 @@ InferCreationAttributes<SequelizeTopics>> {
   declare name: string;
   declare userId: number;
   declare type: string;
-  declare createdAt: Date;
 }
-
+ 
 SequelizeTopics.init({
   id: {
     type: DataTypes.INTEGER,
@@ -38,22 +36,12 @@ SequelizeTopics.init({
   type: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-    field: 'created_at'
   }
 }, {
   sequelize: db,
   modelName: 'topics',
-  timestamps: true,
+  timestamps: false,
   underscored: true,
-});
-
-SequelizeTopics.hasMany(SequelizeMessage, {
-  foreignKey: 'topicId',
-  as: 'messages',
 });
 
 SequelizeTopics.belongsTo(SequelizeUser,{

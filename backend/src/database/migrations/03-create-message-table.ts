@@ -31,10 +31,6 @@ export default {
           key: 'id',
         },
       },
-      createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: new Date(),
-      }
     });
   },
   down(queryInterface: QueryInterface) {

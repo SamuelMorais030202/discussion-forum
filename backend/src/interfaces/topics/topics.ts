@@ -3,5 +3,4 @@ export default interface ITopics {
   name: string;
   userId: number;
   type: string;
-  createdAt?: string;
 }
