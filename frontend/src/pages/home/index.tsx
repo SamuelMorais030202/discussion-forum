@@ -1,6 +1,7 @@
 import { Box, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header";
 import { requestData, setToken } from "../../services/request";
 
 export default function Home() {
@@ -38,6 +39,8 @@ export default function Home() {
   )
 
   return (
-    <h1>Home, page</h1>
+    <section>
+      <Header title="Discussion Forum" />
+    </section>
   )
 }
