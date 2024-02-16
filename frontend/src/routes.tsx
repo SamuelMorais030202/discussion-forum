@@ -11,7 +11,7 @@ export default function Routes() {
       <Route path="/" element={ <Home /> } />
       <Route path="/login" element={ <Login /> } />
       <Route path="/profile" element={ <Profile /> } />
-      <Route path="/topic" element={ <Topic /> } />
+      <Route path="/topic/:id" element={ <Topic /> } />
       <Route path='/new-profile' element={ <NewProfile /> } />
       <Route path="" element={ <Navigate to="/login" /> } />
       <Route path="*" element={ <Navigate to="/login" /> } />

@@ -2,6 +2,7 @@ import { Box, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import Topics from "../../components/Topics";
 import { requestData, setToken } from "../../services/request";
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
   return (
     <section>
       <Header title="Discussion Forum" />
+      <Topics />
     </section>
   )
 }

@@ -3,6 +3,7 @@ import SequelizeTopics from "../database/models/SequelizeTopics";
 import ITopics from "../interfaces/topics/topics";
 import { NewEntity } from "../interfaces/user/user.model";
 import SequelizeMessage from "../database/models/SequelizeMessage";
+import SequelizeUser from "../database/models/SequelizeUser";
 
 export default class TopicModel implements ITopicModel {
   private model = SequelizeTopics;
@@ -15,20 +16,34 @@ export default class TopicModel implements ITopicModel {
 
   async getAll(): Promise<ITopics[]> {
     const topics = await this.model.findAll({
-      include: [{
-        model: SequelizeMessage,
-        as: 'messages'
-      }]
+      include: [
+        {
+          model: SequelizeMessage,
+          as: 'messages'
+        },
+        {
+          model: SequelizeUser,
+          as: 'user',
+          attributes: ['name', 'id', 'lastName']
+        }
+      ]
     });
     return topics;
   }
 
   async getById(id: ITopics['id']): Promise<ITopics | null> {
     const topic = await this.model.findByPk(id, {
-      include: [{
-        model: SequelizeMessage,
-        as: 'messages'
-      }]
+      include: [
+        {
+          model: SequelizeMessage,
+          as: 'messages'
+        },
+        {
+          model: SequelizeUser,
+          as: 'user',
+          attributes: ['name', 'id', 'lastName']
+        }
+      ]
     });
 
     if (topic === null) return null
@@ -39,10 +54,17 @@ export default class TopicModel implements ITopicModel {
   async getByType(type: string): Promise<ITopics[] | null> {
     const topicByType = await this.model.findAll({
       where: { type },
-      include:  [{
-        model: SequelizeMessage,
-        as: 'messages'
-      }]
+      include: [
+        {
+          model: SequelizeMessage,
+          as: 'messages'
+        },
+        {
+          model: SequelizeUser,
+          as: 'user',
+          attributes: ['name', 'id', 'lastName']
+        }
+      ]
     });
 
     if (topicByType === null) return null;
@@ -53,10 +75,17 @@ export default class TopicModel implements ITopicModel {
   async getByUser(userId: number): Promise<ITopics[]> {
     const userTopics = await this.model.findAll({
       where: { userId },
-      include: [{
-        model: SequelizeMessage,
-        as: 'messages',
-      }],
+      include: [
+        {
+          model: SequelizeMessage,
+          as: 'messages'
+        },
+        {
+          model: SequelizeUser,
+          as: 'user',
+          attributes: ['name', 'id', 'lastName']
+        }
+      ]
     });
 
     return userTopics;
