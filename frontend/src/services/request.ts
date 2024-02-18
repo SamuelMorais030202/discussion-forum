@@ -1,5 +1,5 @@
 import axios from 'axios';
-import IRequestLogin from '../interfaces/requestLogin';
+import { UnionRequest } from '../interfaces/request';
 
 const api = axios.create({
   baseURL: `http://localhost:3001`,
@@ -14,7 +14,7 @@ export const requestData = async (endpoint: string) => {
   return data;
 };
 
-export const postRequest = async (endpoint: string, body: IRequestLogin) => {
+export const postRequest = async (endpoint: string, body: UnionRequest) => {
   const { data } = await api.post(endpoint, body);
   return data;
 };

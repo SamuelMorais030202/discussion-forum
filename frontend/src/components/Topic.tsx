@@ -13,20 +13,31 @@ export default function TopicCard({
   return (
     <Card
       variant="outlined"
-      sx={{ maxWidth: 360 }}
+      sx={{
+        maxWidth: 420,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1,
+        margin: 'auto',
+        cursor: 'pointer'
+      }}
       onClick={() => navigate(`/topic/${id}`)}
     >
       <h3>{name}</h3>
-      <p>{type}</p>
+      <p>Tema: {type}</p>
       <div>
-        Criador por
+        Criado por:
         {' '}
-        {user && (
+        {user?.name}
+        {' '}
+        <span>
+         <Avatar sx={{ width: 18, height: 18, mr: 1 }} />
+        </span>
+        {/* {user && (
           <>
             {user.name}
-            <Avatar sx={{ width: 18, height: 18, mr: 1 }} />
           </>
-        )}
+        )} */}
       </div>
     </Card>
   )

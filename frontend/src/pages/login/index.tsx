@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import IRequestLogin from '../../interfaces/requestLogin';
+import { IRequestLogin } from '../../interfaces/request';
 import { handleMouseDown } from '../../utils/handleMouseDown';
 import Box from '@mui/material/Box';
 import { TextField, Button, Alert } from '@mui/material';

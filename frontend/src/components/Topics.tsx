@@ -1,20 +1,18 @@
-import { Alert } from "@mui/material";
+import { Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
+import { AddCircleOutline as AddCircleOutlineIcon } from '@mui/icons-material';
 import { ITopic } from "../interfaces/topicResponse";
-import { requestData } from "../services/request";
+import { postRequest, requestData } from "../services/request";
 import TopicCard from "./Topic";
-
-export default interface ITopics {
-  id: number;
-  name: string;
-  userId: number;
-  type: string;
-}
+import './style/Topics.css';
 
 export default function Topics() {
-  const [topics, setTopics] = useState<ITopic[]>();
-  const [messageError, setMessageError] = useState('');
-  const [failedRequest, setFailedRequest] = useState(false);
+  const [topics, setTopics] = useState<ITopic[]>([]);
+  const [messageError, setMessageError] = useState<string>('');
+  const [failedRequest, setFailedRequest] = useState<boolean>(false);
+  const [openForm, setOpenForm] = useState<boolean>(false);
+  const [newTopic, setNewTopic] = useState({ name: '', type: '' });
+  const [createError, setCreateError] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -27,12 +25,49 @@ export default function Topics() {
       }
     })();
   }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setNewTopic((prevTopic) => ({
+      ...prevTopic,
+      [name]: value,
+    }));
+  };
+
+  const handleCreateTopic = async  () => {
+    try {
+      const response = await postRequest('/topic', newTopic);
+      console.log(response);
+      setTopics((prevState) => ([
+        ...prevState,
+        response,
+      ]))
+      setNewTopic({
+        name: '',
+        type: '',
+      });
+      setOpenForm(false);
+    } catch (error: any) {
+      setCreateError(error.response?.data?.message);
+    }
+  };
+
   
   return (
-    <section>
-      <h1>Tópicos</h1>
+    <section className="home-page">
+      <header className="title">
+        <h1>Tópicos</h1>
+        <IconButton
+          onClick={() => {
+            setOpenForm(true);
+            setCreateError('');
+          }}
+          color="primary">
+          <AddCircleOutlineIcon />
+        </IconButton>
+      </header>
 
-      <div>
+      <div className="topics">
         {
           topics?.map((topic) => (
             <TopicCard
@@ -51,6 +86,34 @@ export default function Topics() {
         ? <Alert severity='error'>{ messageError }</Alert>
         : null
       }
+
+      <Dialog open={openForm} onClose={() => setOpenForm(false)}>
+        <DialogTitle>Criar Tópico</DialogTitle>
+        <DialogContent>
+          {createError && <Alert severity="error">{createError}</Alert>}
+          <TextField
+            fullWidth
+            label="Nome"
+            name="name"
+            value={newTopic.name}
+            onChange={handleInputChange}
+            margin="normal"
+          />
+          <TextField
+            fullWidth
+            label="Type"
+            name="type"
+            value={newTopic.type}
+            onChange={handleInputChange}
+            margin="normal"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenForm(false)}>Cancelar</Button>
+          <Button onClick={handleCreateTopic}>Criar</Button>
+        </DialogActions>
+      </Dialog>
+
     </section>
   )
 }

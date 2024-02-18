@@ -9,9 +9,10 @@ export default class TopicModel implements ITopicModel {
   private model = SequelizeTopics;
 
   async create({ name, type, userId }: NewEntity<ITopics>)
-  : Promise<ITopics> {
+  : Promise<ITopics| null> {
     const newTopic = await this.model.create({ name, type, userId });
-    return newTopic;
+    if (newTopic === null) return null;
+    return this.getById(newTopic.id);
   }
 
   async getAll(): Promise<ITopics[]> {
