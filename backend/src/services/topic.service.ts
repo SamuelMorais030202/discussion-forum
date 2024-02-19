@@ -11,6 +11,9 @@ export default class TopicService {
   public async createTopic(data: NewEntity<ITopics>)
   : Promise<ServiceResponse<ITopics>> {
     const newTopic = await this.topicModel.create(data);
+    if (newTopic === null) {
+      return { status: 'CONFLICT', data: { message: 'Error when trying to create a topic' } }
+    }
     return { status: 'SUCCESSFUL', data: newTopic };
   };
 

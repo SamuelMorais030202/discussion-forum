@@ -20,7 +20,7 @@ export default class TopicModel implements ITopicModel {
       include: [
         {
           model: SequelizeMessage,
-          as: 'messages'
+          as: 'messages',
         },
         {
           model: SequelizeUser,
@@ -37,7 +37,14 @@ export default class TopicModel implements ITopicModel {
       include: [
         {
           model: SequelizeMessage,
-          as: 'messages'
+          as: 'messages',
+          include: [
+            {
+              model: SequelizeUser,
+              as: 'user',
+              attributes: ['name', 'id', 'lastName']
+            }
+          ]
         },
         {
           model: SequelizeUser,

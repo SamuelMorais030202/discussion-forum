@@ -1,0 +1,48 @@
+.topic-page {
+  background-color: rgb(212, 212, 212);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.title-topic {
+  background-color: #1976d2;
+  color: white;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.messages {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+.card-message {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 350px;
+}
+
+.card-message div {
+  display: flex;
+  gap: 3px;
+}
+
+.forms-message {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}

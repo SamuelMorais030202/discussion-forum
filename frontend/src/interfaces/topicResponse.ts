@@ -3,6 +3,7 @@ export interface IMessage {
   message: string;
   userId: number;
   topicId: number;
+  user: IUserTopic
 }
 
 export interface IUserTopic {
@@ -20,7 +21,7 @@ export default interface ITopicResponse {
 
 export interface ITopic {
   id: number;
-  message: IMessage;
+  messages: IMessage[];
   name: string;
   type: string;
   userId: number;

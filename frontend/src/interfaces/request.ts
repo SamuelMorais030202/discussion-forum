@@ -8,4 +8,9 @@ export interface IRequestNewTopic {
   type: string;
 }
 
-export type UnionRequest = IRequestLogin | IRequestNewTopic
+export interface IRequestNewMessage {
+  message: string;
+  topicId: number;
+}
+
+export type UnionRequest = IRequestLogin | IRequestNewTopic | IRequestNewMessage

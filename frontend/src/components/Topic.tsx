@@ -33,11 +33,6 @@ export default function TopicCard({
         <span>
          <Avatar sx={{ width: 18, height: 18, mr: 1 }} />
         </span>
-        {/* {user && (
-          <>
-            {user.name}
-          </>
-        )} */}
       </div>
     </Card>
   )
