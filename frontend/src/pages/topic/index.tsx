@@ -69,6 +69,13 @@ export default function Topic() {
             {topic?.user.lastName}
           </span>
         </div>
+        <Button
+          variant="outlined"
+          sx={{ color: 'white' }}
+          onClick={() => navigate(-1)}
+        >
+          Voltar
+        </Button>
       </header>
 
       <div className="forms-message">
