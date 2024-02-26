@@ -69,7 +69,7 @@ export default function Topics() {
 
       <div className="topics">
         {
-          topics?.map((topic) => (
+          topics?.sort((a, b) => b.id - a.id).map((topic) => (
             <TopicCard
               key={topic.id}
               name={topic?.name || ''}
