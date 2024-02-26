@@ -8,7 +8,7 @@ import { App } from '../app';
 import SequelizeTopics from '../database/models/SequelizeTopics';
 import TopicValidations from '../middlewares/topic.validations';
 import { user } from './mocks/user.nocks';
-import { formatTopic, formatTopicUpdate, newTopic, updateTopic } from './mocks/topic.mocks';
+import { formatTopic, newTopic } from './mocks/topic.mocks';
 
 chai.use(chaiHttp);
 const { app } = new App();
