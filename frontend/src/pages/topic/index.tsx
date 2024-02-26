@@ -5,6 +5,7 @@ import { ITopic } from '../../interfaces/topicResponse';
 import Message from "../../components/Message";
 import './Topic.css';
 import { TextField, Button, Alert } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SendIcon from '@mui/icons-material/Send';
 
 export default function Topic() {
@@ -57,7 +58,16 @@ export default function Topic() {
   return (
     <section className="topic-page">
       <header className="title-topic">
+        <Button
+          variant="outlined"
+          sx={{ color: 'white' }}
+          onClick={() => navigate(-1)}
+        >
+          <ArrowBackIcon />
+        </Button>
+
         <h1>{topic?.name || ''}</h1>
+
         <div>
           Criado por:
           {' '}
@@ -69,13 +79,6 @@ export default function Topic() {
             {topic?.user.lastName}
           </span>
         </div>
-        <Button
-          variant="outlined"
-          sx={{ color: 'white' }}
-          onClick={() => navigate(-1)}
-        >
-          Voltar
-        </Button>
       </header>
 
       <div className="forms-message">
