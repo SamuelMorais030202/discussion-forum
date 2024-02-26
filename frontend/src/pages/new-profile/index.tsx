@@ -7,6 +7,7 @@ import IErro from "../../interfaces/error";
 import IUser from "../../interfaces/user";
 import { postRequest } from "../../services/request";
 import { handleMouseDown } from "../../utils/handleMouseDown";
+import styled from './newProfile.module.css';
 
 export default function NewProfile() {
   const [userData, setUserData] = useState<IUser>({
@@ -66,96 +67,100 @@ export default function NewProfile() {
 
   return (
     <>
-      <h1>New Profile</h1>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
           '& > :not(style)': { m: 1 },
         }}
       >
-        <TextField
-          id="user-name"
-          label="Name"
-          name="name"
-          value={ userData.name }
-          variant="standard"
-          type="text"
-          onChange={handleChange}
-        />
+        <h1>New Profile</h1>
+        <section className={styled.sectionNewProfilePage}>
+          <TextField
+            id="user-name"
+            label="Name"
+            name="name"
+            value={ userData.name }
+            variant="standard"
+            type="text"
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="user-last-name"
-          label="Last Name"
-          name="lastName"
-          value={ userData.lastName }
-          variant="standard"
-          onChange={handleChange}
-        />
+          <TextField
+            id="user-last-name"
+            label="Last Name"
+            name="lastName"
+            value={ userData.lastName }
+            variant="standard"
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="user-email"
-          label="Email"
-          name="email"
-          value={ userData.email }
-          variant="standard"
-          type="email"
-          onChange={handleChange}
-        />
+          <TextField
+            id="user-email"
+            label="Email"
+            name="email"
+            value={ userData.email }
+            variant="standard"
+            type="email"
+            onChange={handleChange}
+          />
 
-        <TextField
-          id="user-phone"
-          label="Phone"
-          name="phone"
-          value={ userData.phone }
-          variant="standard"
-          onChange={handleChange}
-        />
+          <TextField
+            id="user-phone"
+            label="Phone"
+            name="phone"
+            value={ userData.phone }
+            variant="standard"
+            onChange={handleChange}
+          />
 
-        <TextFieldPassword
-          label="Password"
-          password={ userData.password }
-          handleChange={ handleChange }
-          setShowPassword={ setShowPassword }
-          showPassword={ showPassword }
-          name="password"
-          variant="standard"
-        />
+          <TextFieldPassword
+            label="Password"
+            password={ userData.password }
+            handleChange={ handleChange }
+            setShowPassword={ setShowPassword }
+            showPassword={ showPassword }
+            name="password"
+            variant="standard"
+          />
 
-        <TextFieldPassword
-          label="Confirm Password"
-          password={ confirmPassword }
-          handleChange={ changeComfirmPassword }
-          setShowPassword={ setShowConfirmPassword }
-          showPassword={ showConfirmPassword }
-          name="confirmPassword"
-          variant="standard"
-        />
-        
-        <div>
-          <Button
-            variant="contained"
-            sx={{ width: '140px', marginRight: '10px' }}
-            onMouseDown={handleMouseDown}
-            onClick={createProfile}
-          >
-            Criar conta
-          </Button>
-          <Button
-            variant="text"
-            sx={{ width: '140px' }}
-            onMouseDown={handleMouseDown}
-            onClick={() => navigate(-1)}
-          >
-            Voltar
-          </Button>
-        </div>
+          <TextFieldPassword
+            label="Confirm Password"
+            password={ confirmPassword }
+            handleChange={ changeComfirmPassword }
+            setShowPassword={ setShowConfirmPassword }
+            showPassword={ showConfirmPassword }
+            name="confirmPassword"
+            variant="standard"
+          />
+          
+          <div className={ styled.buttonsNewProfilePage }>
+            <Button
+              variant="contained"
+              sx={{ width: '140px', marginRight: '10px' }}
+              onMouseDown={handleMouseDown}
+              onClick={createProfile}
+            >
+              Criar conta
+            </Button>
+            <Button
+              variant="text"
+              sx={{ width: '140px' }}
+              onMouseDown={handleMouseDown}
+              onClick={() => navigate(-1)}
+            >
+              Voltar
+            </Button>
+          </div>
 
-        {
-          erro.anErrorHasOccurred
-          ? <Alert severity='error'>{erro.messageError}</Alert>
-          : null
-        }
+          {
+            erro.anErrorHasOccurred
+            ? <Alert severity='error'>{erro.messageError}</Alert>
+            : null
+          }
+        </section>
 
         <Snackbar
           open={isAccountCreated}

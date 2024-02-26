@@ -6,6 +6,7 @@ import { TextField, Button, Alert } from '@mui/material';
 import { postRequest, setToken } from '../../services/request';
 import { useNavigate } from 'react-router-dom';
 import TextFieldPassword from '../../components/TextFieldPassword';
+import styled from './login.module.css';
 
 export default function Login() {
   const [formInfo, setFormInfo] = useState<IRequestLogin>({
@@ -47,52 +48,56 @@ export default function Login() {
 
   return (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        '& > :not(style)': { m: 1 },
-      }}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+      textAlign="center"
     >
-      <TextField
-        id="email"
-        label="Email"
-        variant="outlined"
-        name="email"
-        value={formInfo.email}
-        onChange={handleChange}
-      />
+      <section className={styled.loginSection}>
+        <TextField
+          id="email"
+          label="Email"
+          variant="outlined"
+          name="email"
+          value={formInfo.email}
+          onChange={handleChange}
+        />
 
-      <TextFieldPassword
-        handleChange={handleChange}
-        label="Password"
-        name="password"
-        password={formInfo.password}
-        setShowPassword={setShowPassword}
-        showPassword={showPassword}
-        variant="outlined"
-      />
+        <TextFieldPassword
+          handleChange={handleChange}
+          label="Password"
+          name="password"
+          password={formInfo.password}
+          setShowPassword={setShowPassword}
+          showPassword={showPassword}
+          variant="outlined"
+        />
 
-      <Button
-        variant="contained"
-        onClick={handleLogin} 
-        onMouseDown={handleMouseDown}
-      >
-        Entrar
-      </Button>
+        <Button
+          variant="contained"
+          onClick={handleLogin} 
+          onMouseDown={handleMouseDown}
+        >
+          Entrar
+        </Button>
 
-      <Button
-        variant="text"
-        onClick={ () => navigate('/new-profile') }
-        onMouseDown={handleMouseDown}
-      >
-        Criar conta
-      </Button>
+        <Button
+          variant="text"
+          onClick={ () => navigate('/new-profile') }
+          onMouseDown={handleMouseDown}
+        >
+          Criar conta
+        </Button>
 
-      {
-        failedLogin
-        ? <Alert severity='error'>{ messageError }</Alert>
-        : null
-      }
+        {
+          failedLogin
+          ? <Alert severity='error'>{ messageError }</Alert>
+          : null
+        }
+
+      </section>
     </Box>
   );
 }
