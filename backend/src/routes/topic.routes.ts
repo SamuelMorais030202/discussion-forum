@@ -47,8 +47,7 @@ topicRouter.put(
 topicRouter.delete(
   '/:id',
   Authorized,
-  TopicValidations.getTopicByType,
-  (req: Request, res: Response) => topicController.updateTopic(req, res),
+  (req: Request, res: Response) => topicController.deleteTopic(req, res),
 )
 
 export default topicRouter;

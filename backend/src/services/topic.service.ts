@@ -76,6 +76,6 @@ export default class TopicService {
     };
 
     await this.topicModel.delete(id);
-    return { status: 'SUCCESSFUL', data: { message: `Topic ${id} not found` } };
+    return { status: 'SUCCESSFUL', data: { message: `Topic ${id} deleted` } };
   };
 }
