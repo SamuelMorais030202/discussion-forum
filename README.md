@@ -57,14 +57,12 @@ Micro-application for discussion forum, where it is possible to create an accoun
     email: 'User email',
     password: 'User password'
   }
-
 2. To log in you need to go through post('/login'):
   ```bash
   {
     email: 'User email',
     password: 'User password'
   }
-
 3. The topic creation route expects post('/topic'):
   - You must be logged in
   ```bash
@@ -72,7 +70,6 @@ Micro-application for discussion forum, where it is possible to create an accoun
     name: 'Topic name',
     type: 'Topic type'
   }
-
 4. In the message route you need post('/message'):
   - You must be logged in
   ```bash:
@@ -80,6 +77,7 @@ Micro-application for discussion forum, where it is possible to create an accoun
     message: 'Message',
     topicId: 'The topic id the message belongs to'
   }
+
 
 ## Contact
 
