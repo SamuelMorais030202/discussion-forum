@@ -49,34 +49,34 @@ Micro-application for discussion forum, where it is possible to create an accoun
 ## Request format
 
 1. The user creation route expects post('/user'):
-  ```bash
-  {
-    name: 'User name',
-    lastName: 'User last name',
-    phone: 'User cell phone',
-    email: 'User email',
-    password: 'User password'
-  }
+    ```bash
+    {
+      name: 'User name',
+      lastName: 'User last name',
+      phone: 'User cell phone',
+      email: 'User email',
+      password: 'User password'
+    }
 2. To log in you need to go through post('/login'):
-  ```bash
-  {
-    email: 'User email',
-    password: 'User password'
-  }
+    ```bash
+    {
+      email: 'User email',
+      password: 'User password'
+    }
 3. The topic creation route expects post('/topic'):
-  - You must be logged in
-  ```bash
-  {
-    name: 'Topic name',
-    type: 'Topic type'
-  }
+    - You must be logged in
+    ```bash
+    {
+      name: 'Topic name',
+      type: 'Topic type'
+    }
 4. In the message route you need post('/message'):
-  - You must be logged in
-  ```bash:
-  {
-    message: 'Message',
-    topicId: 'The topic id the message belongs to'
-  }
+    - You must be logged in
+    ```bash:
+    {
+      message: 'Message',
+      topicId: 'The topic id the message belongs to'
+    }
 
 
 ## Contact
