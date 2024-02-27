@@ -53,8 +53,6 @@ Micro-application for discussion forum, where it is possible to create an accoun
    ```bash
    cd frontend
    npm run test
-
-
 ## Request format
 1. The user creation route expects post('/user'):
     ```bash
