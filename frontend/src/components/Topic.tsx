@@ -6,7 +6,7 @@ export default function TopicCard({
   name,
   type,
   user,
-  id
+  id,
 }: ITopicResponse) {
   const navigate = useNavigate();
 

@@ -3,6 +3,7 @@ import { renderWithRouter } from "../utils/renderWithRouter";
 
 import App from "../App";
 import { userEvent } from "@testing-library/user-event";
+import { newUser } from "./mock/user";
 
 describe('Tests New Profile Page', () => {
   it('Testing navigation to the new profile page', async () => {
@@ -61,14 +62,6 @@ describe('Tests New Profile Page', () => {
 
   it('Testing whether it is possible to create an account', async () => {
     renderWithRouter(<App />, { route: '/new-profile' });
-
-    const newUser = {
-      name: 'User',
-      lastName: 'Faker',
-      email: 'user.faker123@gmail.com',
-      phone: '388449448',
-      password: 'fakerUser123'
-    }
     
     const view = screen.getByTestId('name-new-profile');
 
@@ -94,7 +87,7 @@ describe('Tests New Profile Page', () => {
 
     const btnNewCount = screen.getByRole('button', {
       name: /criar conta/i
-    })
+    });
 
     expect(name).toBeInTheDocument();
     expect(lastName).toBeInTheDocument();

@@ -35,7 +35,7 @@ export default function Home() {
       justifyContent="center"
       height="100vh"
     >
-      <CircularProgress />
+      <CircularProgress data-testid="loader" />
     </Box>
   )
 

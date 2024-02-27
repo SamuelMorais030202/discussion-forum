@@ -81,6 +81,7 @@ export default function Login() {
           variant="contained"
           onClick={handleLogin} 
           onMouseDown={handleMouseDown}
+          data-testid="btn-login"
         >
           Entrar
         </Button>
