@@ -61,6 +61,7 @@ export default function Login() {
           label="Email"
           variant="outlined"
           name="email"
+          data-testid="email-login"
           value={formInfo.email}
           onChange={handleChange}
         />
@@ -73,6 +74,7 @@ export default function Login() {
           setShowPassword={setShowPassword}
           showPassword={showPassword}
           variant="outlined"
+          dataTestid="password-login"
         />
 
         <Button

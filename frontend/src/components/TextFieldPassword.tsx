@@ -10,13 +10,15 @@ export default function TextFieldPassword({
   setShowPassword,
   label,
   name,
-  variant
+  variant,
+  dataTestid
 } : ITextFieldPassword & TextFieldProps) {
   return (
     <TextField
       label={label}
       name={name}
       value={password}
+      data-testid={dataTestid}
       variant={variant || 'outlined'}
       type={showPassword ? 'text' : 'password'}
       onChange={handleChange}
