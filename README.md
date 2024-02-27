@@ -44,6 +44,14 @@ Micro-application for discussion forum, where it is possible to create an accoun
 8. Start the frontend:
    ```bash
    npm run dev
+9. To run the backend tests, enter the container and run the tests:
+   ```bash
+   docker exec -it app_backend sh
+   npm run test
+10. To run the frontend tests, it must be running in another terminal:
+   ```bash
+   cd frontend
+   npm run test
 
 
 ## Request format
