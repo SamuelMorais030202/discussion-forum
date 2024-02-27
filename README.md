@@ -14,6 +14,7 @@ Micro-application for discussion forum, where it is possible to create an accoun
   - Material-UI
   - CSS
 
+
 ## Features
   - User registration
   - Login
@@ -22,8 +23,8 @@ Micro-application for discussion forum, where it is possible to create an accoun
   - Add posts to as many topics as you want
   - Edit profile data
 
-## Environment Setup
 
+## Environment Setup
 1. Make sure you have Docker installed on your machine.
 2. Clone this repository to your local machine.
 3. Navigate to the cloned repository:
@@ -55,7 +56,6 @@ Micro-application for discussion forum, where it is possible to create an accoun
 
 
 ## Request format
-
 1. The user creation route expects post('/user'):
     ```bash
     {
@@ -88,7 +88,6 @@ Micro-application for discussion forum, where it is possible to create an accoun
 
 
 ## Contact
-
 - E-mail de contato: moraissamuel009@gmail.com
 - Phone: (38) 988449448
 - Linkedin: https://www.linkedin.com/in/samuel-morais-garcia-4a823b244/
