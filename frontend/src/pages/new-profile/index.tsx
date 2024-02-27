@@ -86,6 +86,7 @@ export default function NewProfile() {
             variant="standard"
             type="text"
             onChange={handleChange}
+            data-testid="name-new-profile"
           />
 
           <TextField
@@ -95,6 +96,7 @@ export default function NewProfile() {
             value={ userData.lastName }
             variant="standard"
             onChange={handleChange}
+            data-testid="lastName-new-profile"
           />
 
           <TextField
@@ -105,6 +107,7 @@ export default function NewProfile() {
             variant="standard"
             type="email"
             onChange={handleChange}
+            data-testid="email-new-profile"
           />
 
           <TextField
@@ -114,6 +117,7 @@ export default function NewProfile() {
             value={ userData.phone }
             variant="standard"
             onChange={handleChange}
+            data-testid="phone-new-profile"
           />
 
           <TextFieldPassword
@@ -122,6 +126,7 @@ export default function NewProfile() {
             handleChange={ handleChange }
             setShowPassword={ setShowPassword }
             showPassword={ showPassword }
+            dataTestid="password-new-profile"
             name="password"
             variant="standard"
           />
@@ -132,6 +137,7 @@ export default function NewProfile() {
             handleChange={ changeComfirmPassword }
             setShowPassword={ setShowConfirmPassword }
             showPassword={ showConfirmPassword }
+            dataTestid="confirmPassword-new-profile"
             name="confirmPassword"
             variant="standard"
           />
@@ -149,7 +155,7 @@ export default function NewProfile() {
               variant="text"
               sx={{ width: '140px' }}
               onMouseDown={handleMouseDown}
-              onClick={() => navigate(-1)}
+              onClick={() => navigate('/login')}
             >
               Voltar
             </Button>
@@ -164,8 +170,8 @@ export default function NewProfile() {
 
         <Snackbar
           open={isAccountCreated}
-          autoHideDuration={3000}
           onClose={() => setAccountCreated(false)}
+          data-testid="message"
         >
           <Alert severity="success">Account created successfully!</Alert>
         </Snackbar>
